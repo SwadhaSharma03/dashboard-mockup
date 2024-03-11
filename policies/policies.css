@@ -1,0 +1,34 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color:rgb(3, 3, 101);
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(3, 3, 101);
+    color: #fff;
+  }
+  
+  
+  
+  .policy {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(3, 3, 101);
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(3, 3, 101);
+    color: #fff;
+  }
+  

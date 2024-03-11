@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feedback.css">
+    <title>Grievance Redressal</title>
+</head>
+<body>
+
+    <div class="feedback-form">
+        <h1>Grievance Redressal</h1>
+
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" required>
+
+            <label>Are you facing any issues?</label>
+            <div class="radio-group">
+                <input type="radio" id="yes" name="issues" value="yes" required>
+                <label for="yes">Yes</label>
+
+                <input type="radio" id="no" name="issues" value="no" required>
+                <label for="no">No</label>
+            </div>
+
+            <label for="details">If yes, please provide details:</label>
+            <textarea id="details" name="details"></textarea>
+
+            <label for="suggestions">Suggestions for improvement:</label>
+            <textarea id="suggestions" name="suggestions"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

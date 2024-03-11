@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Management</title>
+    <link rel="stylesheet" href="styles.css ">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <a href="#">
+            <img src="https://img.icons8.com/fluent/48/000000/search.png" alt="Search Icon" class="icon">
+            Dashboard
+        </a>
+        <a href="#">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-j7ZC-XuoYzu5y_KpdWtEJsuFlwLEW00z_w&usqp=CAU"
+                alt="Table Icon" class="icon">
+            Table
+        </a>
+        <a href="/table.html">
+            <img src="https://img.icons8.com/fluent/48/000000/pie-chart.png" alt="Reports Icon" class="icon">
+            Reports
+        </a>
+        <a href="#">
+            <img src="https://img.icons8.com/fluent/48/000000/user-male-circle.png" alt="User Icon" class="icon">
+            Manage User
+        </a>
+        <a href="/policies/policies.html">
+            <img src="https://img.icons8.com/fluent/48/000000/user-male-circle.png" alt="User Icon" class="icon">
+            Policies
+        </a>
+
+    </nav>
+
+    <main>
+        <header>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search...">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256" alt="Search Icon" class="material-icons search-icon">
+                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z"></path></g></g>
+                    </svg> 
+            </div>
+            <div class="user-profile">
+                <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png" alt="User Avatar">
+
+            </div>
+        </header>
+        <div class="hero">
+            <!-- <img src="https://springinteractive.co/wp-content/uploads/2018/03/Spring_Big_Services.png" alt="image" width="100%" height="auto"> -->
+            <div style="padding: 60px;">
+                <center>
+                    <h1>We Make HR Simple</h1>
+                    <p>
+                        Finally, you can stop with the unvetted internet searches, manual HR tasks, and management of
+                        critical information and documentation through multiple vendors. Harmony Hive consolidates your
+                        compliance information and documentation management in a single source, with intuitive tools
+                        —designed specifically for human resources professionals and prepared by attorneys and industry
+                        experts.
+                    </p>
+                </center>
+            </div>
+            <div>
+                <img src="https://springinteractive.co/wp-content/uploads/2018/06/health-spring-small.png" alt="image"
+                    width="100%" height="auto">
+            </div>
+        </div>
+        <br><br>
+        <div class="dashboard">
+
+            <div class="dashboard-item">
+                <span class="serial-number">1.</span>
+                <h3>Track Employee Attendance</h3>
+            </div>
+            <div class="dashboard-item">
+                <span class="serial-number">2.</span>
+                <h3>Tracking Tasks</h3>
+            </div>
+            <div class="dashboard-item">
+                <span class="serial-number">3.</span>
+                <h3>Track Leaves</h3>
+            </div>
+            <div class="dashboard-item">
+                <span class="serial-number">4.</span>
+                <h3>Hiring</h3>
+            </div>
+        </div>
+        <br><br><br><br>
+        <div class="charts-container">
+            <canvas id="revenueGraph"></canvas>
+            <canvas id="revenueSourcesPieChart"></canvas>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
