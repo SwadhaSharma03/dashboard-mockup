@@ -8,12 +8,11 @@
 }
 
 body{
-    /* background-color: #000000;
-    background: linear-gradient(to right, #e2e2e2, #2b428f); */
-    background-image: url('https://i.pinimg.com/564x/69/08/d2/6908d2800c1f153a3167dbae9dc2d7d2.jpg');
+    /* background-image: url('https://i.pinimg.com/564x/69/08/d2/6908d2800c1f153a3167dbae9dc2d7d2.jpg'); */
     background-repeat: no-repeat;
     background-size:cover;
     display: flex;
+    background-color: #eee;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -50,7 +49,7 @@ body{
 }
 
 .container button{
-    background-color: rgb(8, 168, 75);
+    background-color: #8bafad;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -164,9 +163,8 @@ body{
 }
 
 .toggle{
-    background-color: rgb(66,245,141);
     height: 100%;
-    background: linear-gradient(to right, #041107, rgb(54, 231, 128));
+    background: linear-gradient(to right, #041107,#fbabac);
     color: #fff;
     position: relative;
     left: -100%;

@@ -42,7 +42,9 @@
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                <button type="submit" onsubmit="redirectToDashboard();">Sign In</button>
+                <a href="../dashboard.html">
+                    <button>Sign up</button>
+                </a>
             </form>
         </div>
         <div class="toggle-container">
@@ -50,9 +52,7 @@
                 <div class="toggle-panel toggle-left">
                     <h1>Welcome Back!</h1>
                     <p>Supervise your employees and make their lives difficult OR </p>
-                    <a href="../dashboard.html">
-                        <button class="hidden" id="login">Sign In</button>
-                    </a>
+                    <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Welcome to HarmonyHive</h1>
@@ -64,7 +64,7 @@
     </div>
     <script src="redirect.js"></script>
     <script src="register.js"></script>
-    
+
 
 </body>
 
