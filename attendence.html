@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Management</title>
+    <title>HR Management Attendance</title>
     <link rel="stylesheet" href="styles.css ">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,27 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap"
         rel="stylesheet">
+
+        <style>
+            .flex-container {
+              display: flex;
+              flex-wrap: nowrap;
+            }
+            
+            .flex-container > div {
+              background-color: green;
+              width: 70px;
+              margin: 10px;
+              text-align: center;
+              line-height: 75px;
+              font-size: 30px;
+              border-radius: 5px;
+            }
+            
+            .flex-container > div.absent {
+              background-color: red;
+            }
+            </style>
 </head>
 
 <body class="dash-body">
@@ -54,49 +75,19 @@
 
             </div>
         </header>
-        <div class="hero">
-            <!-- <img src="https://springinteractive.co/wp-content/uploads/2018/03/Spring_Big_Services.png" alt="image" width="100%" height="auto"> -->
-            <div style="padding: 60px;">
-                <center>
-                    <h1>We Make HR Simple</h1>
-                    <p>
-                        Finally, you can stop with the unvetted internet searches, manual HR tasks, and management of
-                        critical information and documentation through multiple vendors. Harmony Hive consolidates your
-                        compliance information and documentation management in a single source, with intuitive tools
-                        —designed specifically for human resources professionals and prepared by attorneys and industry
-                        experts.
-                    </p>
-                </center>
-            </div>
-            <div>
-                <img src="https://springinteractive.co/wp-content/uploads/2018/06/health-spring-small.png" alt="image"
-                    width="100%" height="auto">
-            </div>
+        <br>
+        <div style="margin:20px">
+            <h1>Attendance of the day</h1>
+            <div class="flex-container">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>  
+                <div class="absent">4</div>
+                <div>5</div>
+                <div>6</div>  
+                <div>7</div>
+                <div>8</div>
+              </div>
         </div>
-        <br><br>
-        <div class="dashbrd">
-
-            <div class="dashboard-item">
-                <span class="serial-number"></span>
-                <h3>Track Employee Attendance</h3>
-            </div>
-            <div class="dashboard-item">
-                <a href="./feedback/feedback.html">
-                <span class="serial-number"></span>
-                <h3>Grievance Redressal</h3>
-            </a>
-            </div>
-            
-        </div>
-        <br><br><br><br>
-        <div class="charts-container">
-            <canvas id="revenueGraph"></canvas>
-            <canvas id="revenueSourcesPieChart"></canvas>
-        </div>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./scripts.js"></script>
-</body>
-
-</html>
+        </main>
+        </body>

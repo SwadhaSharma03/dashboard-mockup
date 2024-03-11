@@ -4,266 +4,585 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="table.css">
-  <title>User Table</title>
+  <title>HR Management Table</title>
+  <link rel="stylesheet" href="../styles.css">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
+  <!-- Add the jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+  <!-- Add the Popper.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+  <!-- Add the Bootstrap JavaScript library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Add the DataTables library -->
+  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+
+  <!-- Add the DataTables Bootstrap 4 integration -->
+  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap4.js"></script>
+  <!-- Add the Bootstrap CSS library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+
+  <!-- Add the DataTables CSS library with Bootstrap 4 styling -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap4.css">
 </head>
 
-<body>
+<body class="dash-body">
+  <nav class="dash-nav">
+    <a href="#">
+      <img src="https://img.icons8.com/fluent/48/000000/search.png" alt="Search Icon" class="icon">
+      Dashboard
+    </a>
+    <a href="./table/table.html">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-j7ZC-XuoYzu5y_KpdWtEJsuFlwLEW00z_w&usqp=CAU"
+        alt="Table Icon" class="icon">
+      Table
+    </a>
+    <a href="#">
+      <img src="https://img.icons8.com/fluent/48/000000/pie-chart.png" alt="Reports Icon" class="icon">
+      Reports
+    </a>
+    <a href="#">
+      <img src="https://img.icons8.com/fluent/48/000000/user-male-circle.png" alt="User Icon" class="icon">
+      Manage User
+    </a>
+    <a href="/policies/policies.html">
+      <img src="https://img.icons8.com/fluent/48/000000/user-male-circle.png" alt="User Icon" class="icon">
+      Policies
+    </a>
 
-  <div class="container">
-    <div class="controls">
-      <label for="entries">Show entries:</label>
-      <select id="entries">
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-      </select>
-      <input type="text" id="customEntries" placeholder="Custom">
+  </nav>
+
+  <main class="dash-main">
+    <header class="dash-header">
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search...">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256"
+          alt="Search Icon" class="material-icons search-icon">
+          <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+            font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <g transform="scale(8.53333,8.53333)">
+              <path
+                d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z">
+              </path>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="user-profile">
+        <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png" alt="User Avatar">
+
+      </div>
+    </header>
+    <br>
+    <div class="dt-container">
+      <!-- tables Start -->
+      <div class="dt-layout-row" style="display: grid; justify-items: end;">
+        <div class="dt-layout-cell dt-start ">
+          <div class="dt-length"><select name="example_length" aria-controls="example" class="dt-input"
+              id="dt-length-0">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select><label for="dt-length-0"> entries per page</label></div>
+        </div>
+        <div class="dt-layout-cell dt-end ">
+          <div class="dt-search"><label for="dt-search-0">Search:</label><input type="search" class="dt-input"
+              id="dt-search-0" placeholder="" aria-controls="example"></div>
+        </div>
+      </div>
+      <table id="example" class="table table-striped table-bordered" style="width:95%; margin:30px">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011-04-25</td>
+            <td>$320,800</td>
+          </tr>
+          <tr>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>63</td>
+            <td>2011-07-25</td>
+            <td>$170,750</td>
+          </tr>
+          <tr>
+            <td>Ashton Cox</td>
+            <td>Junior Technical Author</td>
+            <td>San Francisco</td>
+            <td>66</td>
+            <td>2009-01-12</td>
+            <td>$86,000</td>
+          </tr>
+          <tr>
+            <td>Cedric Kelly</td>
+            <td>Senior Javascript Developer</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2012-03-29</td>
+            <td>$433,060</td>
+          </tr>
+          <tr>
+            <td>Airi Satou</td>
+            <td>Accountant</td>
+            <td>Tokyo</td>
+            <td>33</td>
+            <td>2008-11-28</td>
+            <td>$162,700</td>
+          </tr>
+          <tr>
+            <td>Brielle Williamson</td>
+            <td>Integration Specialist</td>
+            <td>New York</td>
+            <td>61</td>
+            <td>2012-12-02</td>
+            <td>$372,000</td>
+          </tr>
+          <tr>
+            <td>Herrod Chandler</td>
+            <td>Sales Assistant</td>
+            <td>San Francisco</td>
+            <td>59</td>
+            <td>2012-08-06</td>
+            <td>$137,500</td>
+          </tr>
+          <tr>
+            <td>Rhona Davidson</td>
+            <td>Integration Specialist</td>
+            <td>Tokyo</td>
+            <td>55</td>
+            <td>2010-10-14</td>
+            <td>$327,900</td>
+          </tr>
+          <tr>
+            <td>Colleen Hurst</td>
+            <td>Javascript Developer</td>
+            <td>San Francisco</td>
+            <td>39</td>
+            <td>2009-09-15</td>
+            <td>$205,500</td>
+          </tr>
+          <tr>
+            <td>Sonya Frost</td>
+            <td>Software Engineer</td>
+            <td>Edinburgh</td>
+            <td>23</td>
+            <td>2008-12-13</td>
+            <td>$103,600</td>
+          </tr>
+          <tr>
+            <td>Jena Gaines</td>
+            <td>Office Manager</td>
+            <td>London</td>
+            <td>30</td>
+            <td>2008-12-19</td>
+            <td>$90,560</td>
+          </tr>
+          <tr>
+            <td>Quinn Flynn</td>
+            <td>Support Lead</td>
+            <td>Edinburgh</td>
+            <td>22</td>
+            <td>2013-03-03</td>
+            <td>$342,000</td>
+          </tr>
+          <tr>
+            <td>Charde Marshall</td>
+            <td>Regional Director</td>
+            <td>San Francisco</td>
+            <td>36</td>
+            <td>2008-10-16</td>
+            <td>$470,600</td>
+          </tr>
+          <tr>
+            <td>Haley Kennedy</td>
+            <td>Senior Marketing Designer</td>
+            <td>London</td>
+            <td>43</td>
+            <td>2012-12-18</td>
+            <td>$313,500</td>
+          </tr>
+          <tr>
+            <td>Tatyana Fitzpatrick</td>
+            <td>Regional Director</td>
+            <td>London</td>
+            <td>19</td>
+            <td>2010-03-17</td>
+            <td>$385,750</td>
+          </tr>
+          <tr>
+            <td>Michael Silva</td>
+            <td>Marketing Designer</td>
+            <td>London</td>
+            <td>66</td>
+            <td>2012-11-27</td>
+            <td>$198,500</td>
+          </tr>
+          <tr>
+            <td>Paul Byrd</td>
+            <td>Chief Financial Officer (CFO)</td>
+            <td>New York</td>
+            <td>64</td>
+            <td>2010-06-09</td>
+            <td>$725,000</td>
+          </tr>
+          <tr>
+            <td>Gloria Little</td>
+            <td>Systems Administrator</td>
+            <td>New York</td>
+            <td>59</td>
+            <td>2009-04-10</td>
+            <td>$237,500</td>
+          </tr>
+          <tr>
+            <td>Bradley Greer</td>
+            <td>Software Engineer</td>
+            <td>London</td>
+            <td>41</td>
+            <td>2012-10-13</td>
+            <td>$132,000</td>
+          </tr>
+          <tr>
+            <td>Dai Rios</td>
+            <td>Personnel Lead</td>
+            <td>Edinburgh</td>
+            <td>35</td>
+            <td>2012-09-26</td>
+            <td>$217,500</td>
+          </tr>
+          <tr>
+            <td>Jenette Caldwell</td>
+            <td>Development Lead</td>
+            <td>New York</td>
+            <td>30</td>
+            <td>2011-09-03</td>
+            <td>$345,000</td>
+          </tr>
+          <tr>
+            <td>Yuri Berry</td>
+            <td>Chief Marketing Officer (CMO)</td>
+            <td>New York</td>
+            <td>40</td>
+            <td>2009-06-25</td>
+            <td>$675,000</td>
+          </tr>
+          <tr>
+            <td>Caesar Vance</td>
+            <td>Pre-Sales Support</td>
+            <td>New York</td>
+            <td>21</td>
+            <td>2011-12-12</td>
+            <td>$106,450</td>
+          </tr>
+          <tr>
+            <td>Doris Wilder</td>
+            <td>Sales Assistant</td>
+            <td>Sydney</td>
+            <td>23</td>
+            <td>2010-09-20</td>
+            <td>$85,600</td>
+          </tr>
+          <tr>
+            <td>Angelica Ramos</td>
+            <td>Chief Executive Officer (CEO)</td>
+            <td>London</td>
+            <td>47</td>
+            <td>2009-10-09</td>
+            <td>$1,200,000</td>
+          </tr>
+          <tr>
+            <td>Gavin Joyce</td>
+            <td>Developer</td>
+            <td>Edinburgh</td>
+            <td>42</td>
+            <td>2010-12-22</td>
+            <td>$92,575</td>
+          </tr>
+          <tr>
+            <td>Jennifer Chang</td>
+            <td>Regional Director</td>
+            <td>Singapore</td>
+            <td>28</td>
+            <td>2010-11-14</td>
+            <td>$357,650</td>
+          </tr>
+          <tr>
+            <td>Brenden Wagner</td>
+            <td>Software Engineer</td>
+            <td>San Francisco</td>
+            <td>28</td>
+            <td>2011-06-07</td>
+            <td>$206,850</td>
+          </tr>
+          <tr>
+            <td>Fiona Green</td>
+            <td>Chief Operating Officer (COO)</td>
+            <td>San Francisco</td>
+            <td>48</td>
+            <td>2010-03-11</td>
+            <td>$850,000</td>
+          </tr>
+          <tr>
+            <td>Shou Itou</td>
+            <td>Regional Marketing</td>
+            <td>Tokyo</td>
+            <td>20</td>
+            <td>2011-08-14</td>
+            <td>$163,000</td>
+          </tr>
+          <tr>
+            <td>Michelle House</td>
+            <td>Integration Specialist</td>
+            <td>Sydney</td>
+            <td>37</td>
+            <td>2011-06-02</td>
+            <td>$95,400</td>
+          </tr>
+          <tr>
+            <td>Suki Burks</td>
+            <td>Developer</td>
+            <td>London</td>
+            <td>53</td>
+            <td>2009-10-22</td>
+            <td>$114,500</td>
+          </tr>
+          <tr>
+            <td>Prescott Bartlett</td>
+            <td>Technical Author</td>
+            <td>London</td>
+            <td>27</td>
+            <td>2011-05-07</td>
+            <td>$145,000</td>
+          </tr>
+          <tr>
+            <td>Gavin Cortez</td>
+            <td>Team Leader</td>
+            <td>San Francisco</td>
+            <td>22</td>
+            <td>2008-10-26</td>
+            <td>$235,500</td>
+          </tr>
+          <tr>
+            <td>Martena Mccray</td>
+            <td>Post-Sales support</td>
+            <td>Edinburgh</td>
+            <td>46</td>
+            <td>2011-03-09</td>
+            <td>$324,050</td>
+          </tr>
+          <tr>
+            <td>Unity Butler</td>
+            <td>Marketing Designer</td>
+            <td>San Francisco</td>
+            <td>47</td>
+            <td>2009-12-09</td>
+            <td>$85,675</td>
+          </tr>
+          <tr>
+            <td>Howard Hatfield</td>
+            <td>Office Manager</td>
+            <td>San Francisco</td>
+            <td>51</td>
+            <td>2008-12-16</td>
+            <td>$164,500</td>
+          </tr>
+          <tr>
+            <td>Hope Fuentes</td>
+            <td>Secretary</td>
+            <td>San Francisco</td>
+            <td>41</td>
+            <td>2010-02-12</td>
+            <td>$109,850</td>
+          </tr>
+          <tr>
+            <td>Vivian Harrell</td>
+            <td>Financial Controller</td>
+            <td>San Francisco</td>
+            <td>62</td>
+            <td>2009-02-14</td>
+            <td>$452,500</td>
+          </tr>
+          <tr>
+            <td>Timothy Mooney</td>
+            <td>Office Manager</td>
+            <td>London</td>
+            <td>37</td>
+            <td>2008-12-11</td>
+            <td>$136,200</td>
+          </tr>
+          <tr>
+            <td>Jackson Bradshaw</td>
+            <td>Director</td>
+            <td>New York</td>
+            <td>65</td>
+            <td>2008-09-26</td>
+            <td>$645,750</td>
+          </tr>
+          <tr>
+            <td>Olivia Liang</td>
+            <td>Support Engineer</td>
+            <td>Singapore</td>
+            <td>64</td>
+            <td>2011-02-03</td>
+            <td>$234,500</td>
+          </tr>
+          <tr>
+            <td>Bruno Nash</td>
+            <td>Software Engineer</td>
+            <td>London</td>
+            <td>38</td>
+            <td>2011-05-03</td>
+            <td>$163,500</td>
+          </tr>
+          <tr>
+            <td>Sakura Yamamoto</td>
+            <td>Support Engineer</td>
+            <td>Tokyo</td>
+            <td>37</td>
+            <td>2009-08-19</td>
+            <td>$139,575</td>
+          </tr>
+          <tr>
+            <td>Thor Walton</td>
+            <td>Developer</td>
+            <td>New York</td>
+            <td>61</td>
+            <td>2013-08-11</td>
+            <td>$98,540</td>
+          </tr>
+          <tr>
+            <td>Finn Camacho</td>
+            <td>Support Engineer</td>
+            <td>San Francisco</td>
+            <td>47</td>
+            <td>2009-07-07</td>
+            <td>$87,500</td>
+          </tr>
+          <tr>
+            <td>Serge Baldwin</td>
+            <td>Data Coordinator</td>
+            <td>Singapore</td>
+            <td>64</td>
+            <td>2012-04-09</td>
+            <td>$138,575</td>
+          </tr>
+          <tr>
+            <td>Zenaida Frank</td>
+            <td>Software Engineer</td>
+            <td>New York</td>
+            <td>63</td>
+            <td>2010-01-04</td>
+            <td>$125,250</td>
+          </tr>
+          <tr>
+            <td>Zorita Serrano</td>
+            <td>Software Engineer</td>
+            <td>San Francisco</td>
+            <td>56</td>
+            <td>2012-06-01</td>
+            <td>$115,000</td>
+          </tr>
+          <tr>
+            <td>Jennifer Acosta</td>
+            <td>Junior Javascript Developer</td>
+            <td>Edinburgh</td>
+            <td>43</td>
+            <td>2013-02-01</td>
+            <td>$75,650</td>
+          </tr>
+          <tr>
+            <td>Cara Stevens</td>
+            <td>Sales Assistant</td>
+            <td>New York</td>
+            <td>46</td>
+            <td>2011-12-06</td>
+            <td>$145,600</td>
+          </tr>
+          <tr>
+            <td>Hermione Butler</td>
+            <td>Regional Director</td>
+            <td>London</td>
+            <td>47</td>
+            <td>2011-03-21</td>
+            <td>$356,250</td>
+          </tr>
+          <tr>
+            <td>Lael Greer</td>
+            <td>Systems Administrator</td>
+            <td>London</td>
+            <td>21</td>
+            <td>2009-02-27</td>
+            <td>$103,500</td>
+          </tr>
+          <tr>
+            <td>Jonas Alexander</td>
+            <td>Developer</td>
+            <td>San Francisco</td>
+            <td>30</td>
+            <td>2010-07-14</td>
+            <td>$86,500</td>
+          </tr>
+          <tr>
+            <td>Shad Decker</td>
+            <td>Regional Director</td>
+            <td>Edinburgh</td>
+            <td>51</td>
+            <td>2008-11-13</td>
+            <td>$183,000</td>
+          </tr>
+          <tr>
+            <td>Michael Bruce</td>
+            <td>Javascript Developer</td>
+            <td>Singapore</td>
+            <td>29</td>
+            <td>2011-06-27</td>
+            <td>$183,000</td>
+          </tr>
+          <tr>
+            <td>Donna Snider</td>
+            <td>Customer Support</td>
+            <td>New York</td>
+            <td>27</td>
+            <td>2011-01-25</td>
+            <td>$112,000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+          </tr>
+        </tfoot>
+      </table>
+      <center><button>next</button></center>
+      <button><a href="../dashboard.html">Back</button></a>
     </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Employee ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Salary</th>
-          <th>Age</th>
-          <th>Date of Joining</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td>001</td>
-          <td>John</td>
-          <td>Doe</td>
-          <td>Developer</td>
-          <td>New York</td>
-          <td>$80,000</td>
-          <td>30</td>
-          <td>2022-01-01</td>
-        </tr>
-        <tr>
-          <td>002</td>
-          <td>Jane</td>
-          <td>Smith</td>
-          <td>Designer</td>
-          <td>San Francisco</td>
-          <td>$75,000</td>
-          <td>28</td>
-          <td>2022-02-15</td>
-        </tr>
-        <tr>
-            <td>003</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>004</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>005</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>006</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>007</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>008</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>009</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>010</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>011</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>012</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>013</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>014</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>015</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>016</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>017</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>018</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>019</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>020</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>021</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          <tr>
-            <td>022</td>
-            <td>John</td>
-            <td>Doe</td>
-            <td>Developer</td>
-            <td>New York</td>
-            <td>$80,000</td>
-            <td>30</td>
-            <td>2022-01-01</td>
-          </tr>
-          
-      </tbody>
-    </table>
-  </div>
-
-        <center><button>next</button></center>
-        <button><a href="../dashboard.html">Back</button></a>
+  </main>
 </body>
 
 </html>
