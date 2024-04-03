@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance Tracker</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Style the form */
+        #attendance-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+    <div id="attendance-form">
+        <h1>Employee Attendance Tracker</h1>
+        <form>
+            <label for="employeeId">Employee ID:</label>
+            <input type="text" id="employeeId" name="employeeId" required>
+            <br>
+            <label for="attendanceDate">Attendance Date:</label>
+            <input type="date" id="attendanceDate" name="attendanceDate" required>
+            <br>
+            <label for="attendanceStatus">Attendance Status:</label>
+            <select id="attendanceStatus" name="attendanceStatus">
+                <option value="present">Present</option>
+                <option value="absent">Absent</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Add your JavaScript code here -->
+    <script>
+        // You can handle form submission and store attendance data here.
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const employeeId = document.getElementById('employeeId').value;
+            const attendanceDate = document.getElementById('attendanceDate').value;
+            const attendanceStatus = document.getElementById('attendanceStatus').value;
+
+            // You can send this data to a server or store it locally as needed.
+            console.log(`Employee ID: ${employeeId}, Date: ${attendanceDate}, Status: ${attendanceStatus}`);
+        });
+    </script>
+</body>
+</html>
